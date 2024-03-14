@@ -1,10 +1,8 @@
 package com.zipcodewilmington.phonebook;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 //import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+
 
 /**
  * Created by leon on 1/23/18.
@@ -43,6 +41,14 @@ public class PhoneBook {
     }
 
     public String reverseLookup(String phoneNumber)  {
+        Set<String> names = phonebook.keySet();
+        for(String key : names){
+            List<String> numbers = phonebook.get(key);
+
+            if(numbers.contains(phoneNumber)){
+                return key;
+            }
+        }
         return null;
     }
 
